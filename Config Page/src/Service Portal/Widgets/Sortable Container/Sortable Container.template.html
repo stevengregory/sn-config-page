@@ -1,0 +1,24 @@
+<div class="row">
+  <div id="{{c.data.section}}" class="panel-default">
+    <div
+      data-id="{{card.name}}"
+      class="{{c.data.class}}"
+      ng-class="{'filtered': !card.draggable, 'my-handle': !card.handle}"
+      ng-repeat="card in c.data.cards | orderBy: 'order'"
+    >
+      <span
+        ng-if="card.handle"
+        ng-class="{'my-handle': card.handle}"
+        class="glyphicon glyphicon-move"
+        aria-hidden="true"
+      ></span>
+      <span
+        ng-if="card.trash"
+        ng-click="c.deleteWidget(card)"
+        class="trash fa fa-trash"
+        aria-hidden="true"
+      ></span>
+      <sp-widget widget="card.widget"></sp-widget>
+    </div>
+  </div>
+</div>
