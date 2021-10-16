@@ -25,8 +25,8 @@
       return deferred.promise;
     }
 
-    function deleteWidget(widget) {
-      var apiUrl = '/api/x_snc_config_page/widget_service/delete/' + widget;
+    function deleteWidget(sysId) {
+      var apiUrl = '/api/x_snc_config_page/widget_service/delete/' + sysId;
       return doRequest(apiUrl, 'DELETE');
     }
 

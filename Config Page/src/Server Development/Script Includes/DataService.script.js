@@ -6,16 +6,17 @@ var DataService = (function () {
       name: item.widget,
       options: item.options,
       order: item.order,
+      sysId: item.sys_id,
       trash: item.trash,
       widget: getWidget(item.widget, item.options),
     };
   }
 
-  function deleteItem(widget) {
+  function deleteItem(sysId) {
     var user = gs.getUser().getID();
     new global.GlideQuery(getTable('widget'))
       .where('section.user', user)
-      .where('widget.id', widget)
+      .where('sys_id', sysId)
       .deleteMultiple();
   }
 
@@ -25,7 +26,7 @@ var DataService = (function () {
       .where('active', true)
       .where('section.user', user)
       .where('section.name', section)
-      .select('draggable', 'drag_handle', 'options', 'order', 'trash', 'widget.id')
+      .select('draggable', 'drag_handle', 'options', 'order', 'sys_id', 'trash', 'widget.id')
       .forEach(function (item) {
         arr.push(setWidgetObj(item));
       });
@@ -90,6 +91,7 @@ var DataService = (function () {
       handle: item.drag_handle,
       options: item.options,
       order: item.order,
+      sysId: item.sys_id,
       trash: item.trash,
       widget: item.widget.id,
     };

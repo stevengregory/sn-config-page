@@ -15,7 +15,7 @@ api.controller = function ($document, $timeout, dataService) {
   function deleteWidget(widget) {
     var index = c.data.cards.indexOf(widget);
     c.data.cards.splice(index, 1);
-    return dataService.deleteWidget(widget.name);
+    return dataService.deleteWidget(widget.sysId);
   }
 
   function setObject(item, idx) {
