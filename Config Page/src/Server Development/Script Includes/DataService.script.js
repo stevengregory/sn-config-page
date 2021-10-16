@@ -6,7 +6,7 @@ var DataService = (function () {
       name: item.widget,
       options: item.options,
       order: item.order,
-      sysId: item.sys_id,
+      sysId: item.sysId,
       trash: item.trash,
       widget: getWidget(item.widget, item.options),
     };
