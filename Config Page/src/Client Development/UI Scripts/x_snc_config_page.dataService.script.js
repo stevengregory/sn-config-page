@@ -36,7 +36,7 @@
     }
 
     function updateWidget(sysId, order) {
-      var apiUrl = '/api/x_snc_config_page/widget_service/update/' +sysId + '/' + order;
+      var apiUrl = '/api/x_snc_config_page/widget_service/update/' + sysId + '/' + order;
       return doRequest(apiUrl, 'PATCH');
     }
 

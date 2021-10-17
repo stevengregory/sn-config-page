@@ -209,14 +209,14 @@
     "UI Scripts": {
       "x_snc_config_page.dataService": {
         "sys_id": "2912a08c1b17f41050d799f6bc4bcb54",
-        "sys_updated_on": "2021-10-16 23:58:39",
-        "SERVER_MOD_TIME": 1634446719000,
-        "LOCAL_MOD_TIME": 1634428579051,
+        "sys_updated_on": "2021-10-17 00:28:30",
+        "SERVER_MOD_TIME": 1634448510000,
+        "LOCAL_MOD_TIME": 1634430503322,
         "LIVE": true,
         "UNCHANGED": true,
-        "CURRENT_LOCAL_MOD_TIME": 1634428579051,
-        "CURRENT_SERVER_MOD_TIME": 1634446719000,
-        "lastmodified": 1634428719234
+        "CURRENT_LOCAL_MOD_TIME": 1634430503322,
+        "CURRENT_SERVER_MOD_TIME": 1634448510000,
+        "lastmodified": 1634430510570
       },
       "x_snc_config_page.sortable.module.js": {
         "sys_id": "ac72608c1b17f41050d799f6bc4bcb59",
