@@ -97,11 +97,11 @@ var DataService = (function () {
     };
   }
 
-  function updateItem(widget, order) {
+  function updateItem(sysId, order) {
     var user = gs.getUser().getID();
     new global.GlideQuery(getTable('widget'))
       .where('section.user', user)
-      .where('widget.id', widget)
+      .where('sys_id', sysId)
       .updateMultiple({ order: order + 100 });
   }
 

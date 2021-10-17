@@ -20,7 +20,7 @@ api.controller = function ($document, $timeout, dataService) {
 
   function setObject(item, idx) {
     return {
-      widget: item,
+      sysId: item,
       order: idx + 10,
     };
   }

@@ -1,7 +1,7 @@
 <div class="row">
   <div id="{{c.data.section}}" class="panel-default">
     <div
-      data-id="{{card.name}}"
+      data-id="{{card.sysId}}"
       class="{{c.data.class}}"
       ng-class="{'filtered': !card.draggable, 'my-handle': !card.handle}"
       ng-repeat="card in c.data.cards | orderBy: 'order'"

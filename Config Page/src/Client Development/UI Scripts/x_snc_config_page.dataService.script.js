@@ -35,14 +35,14 @@
       return doRequest(apiUrl, 'GET');
     }
 
-    function updateWidget(widget, order) {
-      var apiUrl = '/api/x_snc_config_page/widget_service/update/' + widget + '/' + order;
+    function updateWidget(sysId, order) {
+      var apiUrl = '/api/x_snc_config_page/widget_service/update/' +sysId + '/' + order;
       return doRequest(apiUrl, 'PATCH');
     }
 
     function updateWidgets(widgets) {
       return widgets.map(function (item) {
-        updateWidget(item.widget, item.order);
+        updateWidget(item.sysId, item.order);
       });
     }
   }
