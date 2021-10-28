@@ -4,20 +4,29 @@
   data.section = getSection();
 
   function getClass() {
-    return getOption('class') || new x_snc_config_page.DataService.getSection(getOption('section'))[0]['class'];
+    return (
+      getSectionOption() &&
+      (getOption('class') ||
+        new x_snc_config_page.DataService.getSection(getSectionOption())[0]['class'])
+    );
   }
 
   function getOption(field) {
-    var params = JSON.parse($sp.getDisplayValue('widget_parameters'));
-    return params[field].displayValue.toLowerCase();
+    var params = $sp.getDisplayValue('widget_parameters');
+    return params && JSON.parse(params)[field].displayValue.toLowerCase();
   }
 
   function getSection() {
-    return new x_snc_config_page.DataService.getSection(getOption('section'))[0]['name'];
+    return (
+      getSectionOption() && new x_snc_config_page.DataService.getSection(getSectionOption())[0]['name']
+    );
+  }
+
+  function getSectionOption() {
+    return getOption('section');
   }
 
   function getWidgets() {
-    var user = gs.getUser().getID();
-    return new x_snc_config_page.DataService.getItems(getOption('section'), user);
+    return getSectionOption() && new x_snc_config_page.DataService.getItems(getSectionOption());
   }
 })();

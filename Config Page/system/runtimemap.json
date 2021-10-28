@@ -160,14 +160,14 @@
     "Widgets": {
       "Sortable Container": {
         "sys_id": "908964801b57f41050d799f6bc4bcb2f",
-        "sys_updated_on": "2021-10-16 23:58:39",
-        "SERVER_MOD_TIME": 1634446719000,
-        "LOCAL_MOD_TIME": 1634428716769,
+        "sys_updated_on": "2021-10-28 18:15:32",
+        "SERVER_MOD_TIME": 1635462932000,
+        "LOCAL_MOD_TIME": 1635444931103,
         "LIVE": true,
         "UNCHANGED": true,
-        "CURRENT_LOCAL_MOD_TIME": 1634428716769,
-        "CURRENT_SERVER_MOD_TIME": 1634446719000,
-        "lastmodified": 1634428719222
+        "CURRENT_LOCAL_MOD_TIME": 1635444931103,
+        "CURRENT_SERVER_MOD_TIME": 1635462932000,
+        "lastmodified": 1635444933027
       }
     },
     "Service Portals": {
@@ -209,14 +209,14 @@
     "UI Scripts": {
       "x_snc_config_page.dataService": {
         "sys_id": "2912a08c1b17f41050d799f6bc4bcb54",
-        "sys_updated_on": "2021-10-17 00:28:30",
-        "SERVER_MOD_TIME": 1634448510000,
-        "LOCAL_MOD_TIME": 1634430503322,
+        "sys_updated_on": "2021-10-28 18:15:10",
+        "SERVER_MOD_TIME": 1635462910000,
+        "LOCAL_MOD_TIME": 1635444908834,
         "LIVE": true,
         "UNCHANGED": true,
-        "CURRENT_LOCAL_MOD_TIME": 1634430503322,
-        "CURRENT_SERVER_MOD_TIME": 1634448510000,
-        "lastmodified": 1634430510570
+        "CURRENT_LOCAL_MOD_TIME": 1635444908834,
+        "CURRENT_SERVER_MOD_TIME": 1635462910000,
+        "lastmodified": 1635444911076
       },
       "x_snc_config_page.sortable.module.js": {
         "sys_id": "ac72608c1b17f41050d799f6bc4bcb59",
@@ -264,6 +264,17 @@
         "CURRENT_LOCAL_MOD_TIME": 1634233820230,
         "CURRENT_SERVER_MOD_TIME": 1634251833000,
         "lastmodified": 1634233833037
+      },
+      "Add Widget": {
+        "sys_id": "4fbe01681b27b81050d799f6bc4bcb46",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_SERVER_MOD_TIME": 1635462932000,
+        "sys_updated_on": "2021-10-28 18:15:32",
+        "SERVER_MOD_TIME": 1635462932000,
+        "LOCAL_MOD_TIME": 1635444921430,
+        "CURRENT_LOCAL_MOD_TIME": 1635444921430,
+        "lastmodified": 1635444933077
       }
     }
   },
@@ -534,14 +545,14 @@
     "Script Includes": {
       "DataService": {
         "sys_id": "b901284c1b17f41050d799f6bc4bcb17",
-        "sys_updated_on": "2021-10-16 23:58:39",
-        "SERVER_MOD_TIME": 1634446719000,
-        "LOCAL_MOD_TIME": 1634428614681,
+        "sys_updated_on": "2021-10-28 19:15:06",
+        "SERVER_MOD_TIME": 1635466506000,
+        "LOCAL_MOD_TIME": 1635445371504,
         "LIVE": true,
         "UNCHANGED": true,
-        "CURRENT_LOCAL_MOD_TIME": 1634428614681,
-        "CURRENT_SERVER_MOD_TIME": 1634446719000,
-        "lastmodified": 1634428719265
+        "CURRENT_LOCAL_MOD_TIME": 1635445371504,
+        "CURRENT_SERVER_MOD_TIME": 1635466506000,
+        "lastmodified": 1635448506949
       }
     },
     "Business Rules": {

@@ -3,6 +3,7 @@
 
   function dataService($http, $q) {
     var service = {
+      addWidget: addWidget,
       deleteWidget: deleteWidget,
       getWidgets: getWidgets,
       updateWidgets: updateWidgets,
@@ -23,6 +24,11 @@
         return res.data.result;
       });
       return deferred.promise;
+    }
+
+    function addWidget(section, widgetId) {
+      var apiUrl = '/api/x_snc_config_page/widget_service/add/' + section + '/' + widgetId;
+      return doRequest(apiUrl, 'POST');
     }
 
     function deleteWidget(sysId) {

@@ -1,40 +1,53 @@
 var DataService = (function () {
-  function buildItems(item) {
+  function addItem(section, widgetId) {
+    new global.GlideQuery('sp_widget')
+      .where('id', widgetId)
+      .selectOne('sys_id')
+      .ifPresent(function (item) {
+        return new global.GlideQuery(getTable('widget')).insert({
+          widget: item.sys_id,
+          section: getSectionId(section),
+        });
+      });
+  }
+
+  function buildSectionObj(item) {
+    return {
+      name: item.name,
+      class: item.column_class,
+    };
+  }
+
+  function buildWidgetObj(item) {
     return {
       draggable: item.draggable,
-      handle: item.handle,
+      handle: item.drag_handle,
       name: item.widget,
-      options: item.options,
       order: item.order,
-      sysId: item.sysId,
+      sysId: item.sys_id,
       trash: item.trash,
-      widget: getWidget(item.widget, item.options),
+      widget: getWidget(item.widget.id, item.options),
     };
   }
 
   function deleteItem(sysId) {
-    var user = gs.getUser().getID();
     new global.GlideQuery(getTable('widget'))
-      .where('section.user', user)
+      .where('section.user', getUser())
       .where('sys_id', sysId)
       .deleteMultiple();
   }
 
-  function fetchWidgets(section, user) {
+  function fetchWidgets(section) {
     var arr = [];
     new global.GlideQuery(getTable('widget'))
       .where('active', true)
-      .where('section.user', user)
+      .where('section.user', getUser())
       .where('section.name', section)
       .select('draggable', 'drag_handle', 'options', 'order', 'sys_id', 'trash', 'widget.id')
       .forEach(function (item) {
-        arr.push(setWidgetObj(item));
+        arr.push(buildWidgetObj(item));
       });
     return arr;
-  }
-
-  function getItems(section, user) {
-    return fetchWidgets(section, user).map(buildItems);
   }
 
   function getConfig() {
@@ -46,8 +59,8 @@ var DataService = (function () {
     };
   }
 
-  function getTable(name) {
-    return getConfig().table[name];
+  function getItems(section) {
+    return fetchWidgets(section);
   }
 
   function getSection(section) {
@@ -56,67 +69,43 @@ var DataService = (function () {
       .where('name', section)
       .select('name', 'column_class')
       .forEach(function (item) {
-        arr.push(setSectionObj(item));
+        arr.push(buildSectionObj(item));
       });
     return arr;
+  }
+
+  function getSectionId(section) {
+    return new global.GlideQuery(getTable('section'))
+      .where('user', getUser())
+      .where('name', section)
+      .selectOne('sys_id')
+      .get().sys_id;
+  }
+
+  function getTable(name) {
+    return getConfig().table[name];
+  }
+
+  function getUser() {
+    return gs.getUser().getID();
   }
 
   function getWidget(item, options) {
     return $sp.getWidget(item, options);
   }
 
-  function insertItem(section, widgetId) {
-    new global.GlideQuery('sp_widget')
-      .where('id', widgetId)
-      .selectOne('sys_id')
-      .ifPresent(function (item) {
-        return new global.GlideQuery(getTable('widget')).insert({
-          order: 50,
-          widget: item.sys_id,
-          section: section.name,
-        });
-      });
-  }
-
-  function setSectionObj(item) {
-    return {
-      name: item.name,
-      class: item.column_class,
-    };
-  }
-
-  function setWidgetObj(item) {
-    return {
-      draggable: item.draggable,
-      handle: item.drag_handle,
-      options: item.options,
-      order: item.order,
-      sysId: item.sys_id,
-      trash: item.trash,
-      widget: item.widget.id,
-    };
-  }
-
   function updateItem(sysId, order) {
-    var user = gs.getUser().getID();
     new global.GlideQuery(getTable('widget'))
-      .where('section.user', user)
+      .where('section.user', getUser())
       .where('sys_id', sysId)
       .updateMultiple({ order: order + 100 });
   }
 
-  function updateItems(arr) {
-    return arr.map(function (item) {
-      updateItem(item.widget, item.order);
-    });
-  }
-
   return {
+    addItem: addItem,
     deleteItem: deleteItem,
     getItems: getItems,
     getSection: getSection,
-    insertItem: insertItem,
-    updateItems: updateItems,
     updateItem: updateItem,
   };
 })();
