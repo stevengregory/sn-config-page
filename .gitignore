@@ -1,0 +1,6 @@
+.DS_Store
+dist
+node_modules
+tmp
+.vscode/settings.json
+system/sn-workspace.json
